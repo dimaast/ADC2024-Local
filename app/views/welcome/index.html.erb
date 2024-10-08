@@ -1,0 +1,13 @@
+<%# здесь будет рендеринг %>
+<h1>Welcome#index</h1>
+<h1>Организуем счетчик</h1>
+
+<% colors = [ ['красный', 'red'], ['синий', 'blue'], ['голубой', 'cyan'] ] %>
+
+<% colors.each do |color| %>
+  <%= render 'counter', color: color %>
+<% end %>
+
+<h1>Выбирай себе любой</h1>
+
+<p>Find me in app/views/welcome/index.html.erb</p>
