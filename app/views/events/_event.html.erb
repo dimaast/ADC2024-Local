@@ -1,11 +1,9 @@
 <div id="<%= dom_id event %>">
-  <p>
-    <strong>Title:</strong>
-    <%= event.title %>
-  </p>
+  <h2>
+    <%= link_to event.title, event %>
+  </h2>
 
   <p>
-    <strong>Body:</strong>
     <%= event.body %>
   </p>
 
