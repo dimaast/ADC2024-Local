@@ -1,8 +1,6 @@
 <div id="<%= dom_id event %>">
-  <h2>
-    <%= link_to event.title, event %>
-  </h2>
-
+  <h2><%= link_to event.title, event %></h2>
+  <%= image_tag event.event_image.url, width: 600, height: 200 %>
   <p>
     <%= event.author %>
   </p>

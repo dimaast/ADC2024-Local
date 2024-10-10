@@ -28,7 +28,7 @@ def reset_db
     Rake::Task['db:migrate'].invoke
 end
 
-# Создаем функцию генерации предложений
+# Функция генерации предложений
 def create_sentence
     # Создаем список предложений
     sentence_words = []
@@ -42,16 +42,17 @@ def create_sentence
     sentence = sentence_words.join(' ').capitalize + '.'
 end
 
-def create_event_title
-    i = 1
-    event_title = "Ивент №#{i}"
-    i += 1
-end
+# Функция загрузки рандомного изображения к ивенту
+def upload_random_image
+    uploader = EventImageUploader.new(Event.new, :event_image)
+    uploader.cache!(File.open(Dir.glob(File.join(Rails.root, 'public/autoupload/events', '*')).sample))
+    uploader
+  end
 
 # Функция создания ивентов (quantity раз)
 def create_events(quantity)
-    quantity.times do
-        event = Event.create(title: create_event_title, body: create_sentence, author: 'Дима')
+    quantity.times do |i|
+        event = Event.create(title: "Ивент №#{i + 1}", body: create_sentence, author: 'Дима', event_image: upload_random_image)
         puts "Event with id #{event.id} just created!"
     end
 end
