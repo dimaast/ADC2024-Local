@@ -8,3 +8,11 @@
 
   <%= button_to "Destroy this event", @event, method: :delete %>
 </div>
+
+<h2>Comments</h2>
+<% @event.comments.each do |comment| %>
+  <%= render comment %>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
