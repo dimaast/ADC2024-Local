@@ -7,3 +7,31 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Event.destroy_all
+puts "All posts just destroyed"
+
+events = [
+    {
+        title: 'Встреча в столовой',
+        body: 'Текст события',
+        author: 'Дима Асташов'
+    },
+
+    {
+        title: 'Встреча в музее',
+        body: 'Текст события',
+        author: 'Дима Асташов'
+    },
+
+    {
+        title: 'Вечер презентаций',
+        body: 'Текст события',
+        author: 'Дима Асташов'
+    }
+]
+
+events.each do |event|
+    e = Event.create(event)
+    puts "Event #{ e.title } with id #{ e.id } just created!"
+end
