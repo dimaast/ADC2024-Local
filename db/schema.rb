@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_11_113516) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_11_121646) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "event_id", null: false
@@ -34,7 +34,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_11_113516) do
     t.datetime "updated_at", null: false
     t.string "author"
     t.string "event_image"
+    t.integer "community_id"
+    t.index ["community_id"], name: "index_events_on_community_id"
   end
 
   add_foreign_key "comments", "events"
+  add_foreign_key "events", "communities"
 end

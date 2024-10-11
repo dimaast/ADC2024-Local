@@ -35,7 +35,7 @@
    border-radius: 20px;
  }
 
- #events {
+ #events, #communities {
    width: 90%;
    margin: 40px 0px 40px 0px;
    display: flex;
@@ -74,3 +74,4 @@ h2 {
   border-radius: 100px;
   justify-content: center;
 }
+
