@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :communities
   resources :events do
     resources :comments
   end

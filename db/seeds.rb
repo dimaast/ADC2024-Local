@@ -14,11 +14,51 @@
 # Убираем из текста лишние символы и down-кейсим слова
 @words = @raw_text.downcase.gsub(/[—.—,«»:()]/, '').gsub(/  /, ' ').split(' ')
 
+# Список сообществ
+@communities = [
+    {
+        title: 'Центр лидерства и волонтёрства',
+        link: 'https://vk.com/hse_volunteers ',
+        body: 'Волонтёрский центр Вышки – это команда инициативных и неравнодушных студентов, выпускников и сотрудников университета. Мы помогаем с организацией самых крупных вышкинских проектов: развлекательных и научных. Участвуем в городских фестивалях и конференциях. А ещё помогаем старшему поколению онлайн изучать иностранные языки и школьникам из Москвы и регионов не отставать по школьным предметам.'
+    },
+    {
+        title: 'Студенческий совет НИУ ВШЭ',
+        link: 'https://vk.com/hsecouncil',
+        body: 'Студсовет Вышки'
+    },
+    {
+        title: 'HSE Outreach',
+        link: 'https://vk.com/hseoutreach',
+        body: 'HSE Outreach — старейшая и одна из крупнейших благотворительных организаций в Вышке.'
+    },
+    {
+        title: 'Экологический клуб “Зелёная Вышка”',
+        link: 'https://vk.com/hsegreen',
+        body: 'Экологический клуб'
+    },
+    {
+        title: 'Спортивный клуб',
+        link: 'https://vk.com/hsessc',
+        body: 'Спорт для нас — не только здоровый образ жизни. Это люди, традиции и гордость нашего университета.'
+    },
+    {
+        title: 'InsideOut',
+        link: 'https://vk.com/insideout_hse',
+        body: 'InsideOut – студенческая организация, выворачивающая «наизнанку» стереотипы об однообразной жизни студентов факультета Мировой Экономики и Мировой Политики. '
+    },
+    {
+        title: 'Клуб вьетнамской культуры',
+        link: 'https://vk.com/vietnamculturehse',
+        body: 'Xin chào! Мы – клуб вьетнамской культуры ВШЭ, сообщество энтузиастов, исследующих жизнь Вьетнама'
+    }
+]
+
 # Функция очистки и наполнения бд через сиды
 def seed
     reset_db
     create_events(10)
     create_comments(2..8)
+    create_communities
 end
 
 # Функция очистки бд, которую встраиваем в seed
@@ -64,6 +104,14 @@ def create_comments(quantity)
             comment = Comment.create(event_id: event.id, body: create_sentence)
             puts "Comment #{comment.id} for event #{comment.event.id} just created!"
         end
+    end
+end
+
+# Функция создания сообществ
+def create_communities
+    @communities.each do |community|
+        community = Community.create(community)
+        puts "Community #{ community.title } with id #{ community.id } just created!"
     end
 end
 
