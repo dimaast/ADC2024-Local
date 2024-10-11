@@ -39,7 +39,7 @@ def create_sentence
     end
 
     # Объединяем строку через пробел, делаем первую букву заглавной и ставим точну в конце
-    sentence = sentence_words.join(' ').capitalize + '.'
+    sentence_words.join(' ').capitalize + '.'
 end
 
 # Функция загрузки рандомного изображения к ивенту
@@ -47,7 +47,7 @@ def upload_random_image
     uploader = EventImageUploader.new(Event.new, :event_image)
     uploader.cache!(File.open(Dir.glob(File.join(Rails.root, 'public/autoupload/events', '*')).sample))
     uploader
-  end
+end
 
 # Функция создания ивентов (quantity раз)
 def create_events(quantity)
