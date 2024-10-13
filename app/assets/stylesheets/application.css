@@ -75,3 +75,20 @@ h2 {
   justify-content: center;
 }
 
+.block_communities {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card_community {
+  width: 400px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+  text-decoration: none;
+  color: black;
+}

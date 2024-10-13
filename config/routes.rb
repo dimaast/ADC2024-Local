@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :events do
     resources :comments
   end
+
   get "welcome/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

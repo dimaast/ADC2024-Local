@@ -56,9 +56,9 @@
 # Функция очистки и наполнения бд через сиды
 def seed
     reset_db
+    create_communities
     create_events(10)
     create_comments(2..8)
-    create_communities
 end
 
 # Функция очистки бд, которую встраиваем в seed
@@ -92,7 +92,7 @@ end
 # Функция создания ивентов (quantity раз)
 def create_events(quantity)
     quantity.times do |i|
-        event = Event.create(title: "Ивент №#{i + 1}", body: create_sentence, author: 'Дима', event_image: upload_random_image)
+        event = Event.create(title: "Ивент №#{i + 1}", body: create_sentence, author: 'Дима', event_image: upload_random_image, community_id: 1)
         puts "Event with id #{event.id} just created!"
     end
 end

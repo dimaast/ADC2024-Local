@@ -2,6 +2,14 @@
 
 <%= render @community %>
 
+<div class = "block_communities">
+  <%= @community.events.each do |event| %>
+    <%= link_to event, class: "card_community" do %>
+      <%= render event %>
+    <% end%>
+  <% end%>
+</div>
+
 <div>
   <%= link_to "Edit this community", edit_community_path(@community) %> |
   <%= link_to "Back to communities", communities_path %>
