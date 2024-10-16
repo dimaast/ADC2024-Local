@@ -2,14 +2,16 @@
 
 <% content_for :title, "Events" %>
 
-<h1 class = "page_title">Events</h1>
-
-<%= link_to "New event", new_event_path %>
-
-<div id="events">
-  <% @events.each do |event| %>
-    <%= link_to event, class: 'event_card' do %>
-      <%= render event %>
+<div class="O_BlockCardName">
+  <div class="M_Header">
+    <h1 class="page_title">Ивенты</h1>
+    <%= link_to "Добавить ивент", new_event_path, class: 'M_ButtonAdd'%>
+  </div>
+  <div id="events">
+    <% @events.each do |event| %>
+      <%= link_to event, class: 'event_card' do %>
+        <%= render event %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
