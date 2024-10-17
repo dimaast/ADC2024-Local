@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+    before_action :authenticate_user!
     def create
         @event = Event.find(params[:event_id])
         @comment = @event.comments.create(params[:comment].permit(:body))
