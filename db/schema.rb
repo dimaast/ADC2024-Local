@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_17_160619) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_20_125245) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "event_id", null: false
@@ -37,6 +37,58 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_17_160619) do
     t.string "event_image"
     t.integer "community_id"
     t.index ["community_id"], name: "index_events_on_community_id"
+  end
+
+  create_table "faculties", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
+    t.string "contact"
+    t.string "avatar"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "faculty_id"
+    t.integer "program_id"
+  end
+
+  create_table "programs", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "faculty_id"
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
+  create_table "saves", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subscribers", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "community_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "event_id"
   end
 
   create_table "users", force: :cascade do |t|
