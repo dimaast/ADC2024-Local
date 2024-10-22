@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Programs" %>
+
+<div class="O_BlockCardName">
+  <div class="M_Header">
+    <h1 class="page_title">Программы</h1>
+    <%= link_to "Добавить программу", new_program_path, class: 'M_ButtonAdd'%>
+  </div>
+  <div id="programs">
+    <% @programs.each do |program| %>
+      <%= link_to program, class: 'program_card' do %>
+        <%= render program %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

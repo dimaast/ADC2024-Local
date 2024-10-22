@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Faculties" %>
+
+<div class="O_BlockCardName">
+  <div class="M_Header">
+    <h1 class="page_title">Факультеты</h1>
+    <%= link_to "Добавить факультет", new_faculty_path, class: 'M_ButtonAdd'%>
+  </div>
+  <div id="faculties">
+    <% @faculties.each do |faculty| %>
+      <%= link_to faculty, class: 'faculty_card' do %>
+        <%= render faculty %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

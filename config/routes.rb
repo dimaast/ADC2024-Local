@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :programs
+  resources :faculties
   resources :communities
   resources :events do
     resources :comments
