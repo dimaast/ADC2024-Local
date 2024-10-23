@@ -33,7 +33,8 @@
 
   <div>
     <%= form.label :community_id, style: "display: block" %>
-    <%= form.text_field :community_id %>
+    <%#= form.text_field :community_id %>
+    <%= form.collection_select :community_id, Community.order(:title), :id, :title, {include_blank: true} %>
   </div>
 
   <br>

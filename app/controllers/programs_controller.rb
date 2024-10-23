@@ -1,4 +1,5 @@
 class ProgramsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_program, only: %i[ show edit update destroy ]
 
   # GET /programs or /programs.json

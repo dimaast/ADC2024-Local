@@ -352,6 +352,7 @@
 # Функция очистки и наполнения бд через сиды
 def seed
     reset_db
+    create_users(10)
     create_faculties
     create_programs
     create_communities
@@ -364,6 +365,21 @@ def reset_db
     Rake::Task['db:drop'].invoke
     Rake::Task['db:create'].invoke
     Rake::Task['db:migrate'].invoke
+end
+
+# Функция создания пользователей
+def create_users(quantity)
+    i = 0
+
+    quantity.times do
+        user_data = {
+            email: "user_#{i}@email.com",
+            password: "testtest"
+        }
+        user = User.create!(user_data)
+        puts "User created with id #{user.id}"
+        i += 1
+    end
 end
 
 # Функция генерации предложений
@@ -390,7 +406,8 @@ end
 # Функция создания ивентов (quantity раз)
 def create_events(quantity)
     quantity.times do |i|
-        event = Event.create(title: "Ивент №#{i + 1}", body: create_sentence, author: 'Дима', event_image: upload_random_image, community_id: 1)
+        user = User.all.sample
+        event = Event.create(title: "Ивент №#{i + 1}", body: create_sentence, author: 'Дима', event_image: upload_random_image, community_id: 1, user_id: user.id)
         puts "Event with id #{event.id} just created!"
     end
 end
