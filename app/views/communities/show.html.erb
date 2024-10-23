@@ -2,8 +2,8 @@
 
 <%= render @community %>
 
-<div class = "block_communities">
-  <%= @community.events.each do |event| %>
+<div class="block_communities">
+  <% @community.events.each do |event| %>
     <%= link_to event, class: "card_community" do %>
       <%= render event %>
     <% end%>

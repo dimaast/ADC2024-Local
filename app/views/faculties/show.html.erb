@@ -3,8 +3,8 @@
 <%= render @faculty %>
 
 
-<div class = "block_communities">
-  <%= @faculty.programs.each do |program| %>
+<div class="block_communities">
+  <% @faculty.programs.each do |program| %>
     <%= link_to program, class: "program_card" do %>
       <%= render program %>
     <% end%>
