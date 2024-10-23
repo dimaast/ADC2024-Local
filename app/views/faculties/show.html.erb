@@ -2,6 +2,15 @@
 
 <%= render @faculty %>
 
+
+<div class = "block_communities">
+  <%= @faculty.programs.each do |program| %>
+    <%= link_to program, class: "program_card" do %>
+      <%= render program %>
+    <% end%>
+  <% end%>
+</div>
+
 <div>
   <%= link_to "Edit this faculty", edit_faculty_path(@faculty) %> |
   <%= link_to "Back to faculties", faculties_path %>
