@@ -1,4 +1,4 @@
-<p><%= comment.body %></p>
-<p>
-  <%= link_to "Destroy Comment", [comment.event, comment], data: { turbo_stream: false, turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-</p>
+<div class="comment_block">
+  <p><%= comment.body %></p>
+  <p><%= link_to "Destroy Comment", [comment.event, comment], data: { turbo_stream: false, turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+</div>

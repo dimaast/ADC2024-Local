@@ -159,3 +159,15 @@
    margin: 0px 0px 20px 0px;
   }
 }
+
+/* Комментарии */
+
+.comment_block {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
