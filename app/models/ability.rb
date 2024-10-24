@@ -12,8 +12,9 @@ class Ability
     can :read, Event.all
     can :manage, Event, user: user
 
-    # return unless user.admin?
-    # can :manage, :all
+    return unless user.role == "admin"
+    can :read, :all
+    can :manage, :all
 
     # The first argument to `can` is the action you are giving the user
     # permission to do.

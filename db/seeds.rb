@@ -376,6 +376,11 @@ def create_users(quantity)
             email: "user_#{i}@email.com",
             password: "testtest"
         }
+
+        if i == 0
+          user_data[:role] = 'admin'
+        end
+
         user = User.create!(user_data)
         puts "User created with id #{user.id}"
         i += 1
