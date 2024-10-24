@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_23_192352) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_24_111717) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "event_id", null: false
@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_23_192352) do
     t.string "event_image"
     t.integer "community_id"
     t.integer "user_id"
+    t.boolean "public", default: false
     t.index ["community_id"], name: "index_events_on_community_id"
   end
 

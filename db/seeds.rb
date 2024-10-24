@@ -403,11 +403,16 @@ def upload_random_image
     uploader
 end
 
+# Делаем рандом для ивентов (паблик / не паблик)
+def get_random_bool
+  [ true, false ].sample
+end
+
 # Функция создания ивентов (quantity раз)
 def create_events(quantity)
     quantity.times do |i|
         user = User.all.sample
-        event = Event.create(title: "Ивент №#{i + 1}", body: create_sentence, author: 'Дима', event_image: upload_random_image, community_id: 1, user_id: user.id)
+        event = Event.create(title: "Ивент №#{i + 1}", body: create_sentence, author: 'Дима', event_image: upload_random_image, community_id: 1, user_id: user.id, public: get_random_bool)
         puts "Event with id #{event.id} just created!"
     end
 end

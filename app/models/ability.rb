@@ -6,10 +6,11 @@ class Ability
   def initialize(user)
     # Define abilities for the user here. For example:
 
-    can :read, Post, public: true
+    can :read, Event, public: true
 
     return unless user.present?
-    can :read, Post, user: user
+    can :read, Event.all
+    can :manage, Event, user: user
 
     # return unless user.admin?
     # can :manage, :all
@@ -27,7 +28,7 @@ class Ability
     # objects.
     # For example, here the user can only update published articles.
     #
-    can :update, Article, published: true
+    # can :update, Article, published: true
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md

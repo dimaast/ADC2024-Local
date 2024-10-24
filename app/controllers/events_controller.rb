@@ -1,10 +1,15 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
+  load_and_authorize_resource
   before_action :set_event, only: %i[ show edit update destroy ]
 
   # GET /events or /events.json
   def index
-    @events = current_user.events
+    if current_user
+      @events = Event.all
+    else
+      @events = Event.where(public: true)
+    end
   end
 
   # GET /events/1 or /events/1.json
