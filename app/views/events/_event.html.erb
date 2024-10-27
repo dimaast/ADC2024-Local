@@ -1,13 +1,10 @@
 <div id="<%= dom_id event %>">
   <h2><%= event.title %></h2>
-  <%= image_tag event.event_image.url, :class => "event_image" %>
-  <p>
-    <strong>Автор:</strong>
-    <%= event.author %>
-  </p>
 
-  <p>
-    <%= event.body %>
-  </p>
+  <%= image_tag event.event_image.url, :class => "event_image" %>
+
+  <p><strong>Автор:</strong> <%= event.user[:username] %></p>
+
+  <p><%= event.body %></p>
 
 </div>

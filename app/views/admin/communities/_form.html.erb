@@ -1,4 +1,4 @@
-<%= form_with(model: community) do |form| %>
+<%= form_with(model: [:admin, community]) do |form| %>
   <% if community.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(community.errors.count, "error") %> prohibited this community from being saved:</h2>

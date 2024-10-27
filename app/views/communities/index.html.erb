@@ -4,12 +4,14 @@
 
 <h1>Communities</h1>
 
-<%= link_to "New community", new_community_path %>
+<% if user_signed_in? %>
+  <%= link_to "New community", new_admin_community_path %>
+<% end %>
 
 <div id="communities">
   <% @communities.each do |community| %>
-    <%= link_to community, class: 'event_card' do %>
-      <%= render community %>
+    <%= link_to community_path(community), class: 'event_card' do %>
+      <%= render "communities/community", community: community %>
     <% end %>
   <% end %>
 </div>

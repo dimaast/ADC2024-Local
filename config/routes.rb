@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :programs
-  resources :faculties
-  resources :communities
-  resources :events do
+
+  resources :events, only: [ :index, :show ] do
     resources :comments
+  end
+  resources :communities, only: [ :index, :show ]
+
+  namespace :admin do
+    resources :programs
+    resources :faculties
+    resources :communities, except: [ :index, :show ]
+    resources :events, except: [ :index, :show ]
   end
 
   get "welcome/index"

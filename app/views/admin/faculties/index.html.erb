@@ -5,11 +5,11 @@
 <div class="O_BlockCardName">
   <div class="M_Header">
     <h1 class="page_title">Факультеты</h1>
-    <%= link_to "Добавить факультет", new_faculty_path, class: 'M_ButtonAdd'%>
+    <%= link_to "Добавить факультет", new_admin_faculty_path, class: 'M_ButtonAdd'%>
   </div>
   <div id="faculties">
     <% @faculties.each do |faculty| %>
-      <%= link_to faculty, class: 'faculty_card' do %>
+      <%= link_to admin_faculty_path(faculty), class: 'faculty_card' do %>
         <%= render faculty %>
       <% end %>
     <% end %>

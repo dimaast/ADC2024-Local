@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @faculty %>
+
+
+<div class="block_communities">
+  <% @faculty.programs.each do |program| %>
+    <%= link_to admin_program_path(program), class: "program_card" do %>
+      <%= render program %>
+    <% end%>
+  <% end%>
+</div>
+
+<div>
+  <%= link_to "Edit this faculty", edit_admin_faculty_path(@faculty) %> |
+  <%= link_to "Back to faculties", admin_faculties_path %>
+
+  <%= button_to "Destroy this faculty", admin_faculty_path(@faculty), method: :delete %>
+</div>

@@ -374,11 +374,13 @@ def create_users(quantity)
     quantity.times do
         user_data = {
             email: "user_#{i}@email.com",
-            password: "testtest"
+            password: "testtest",
+            username: "user#{i}"
         }
 
         if i == 0
-          user_data[:role] = 'admin'
+          user_data[:role] = "admin"
+          user_data[:username] = "admin"
         end
 
         user = User.create!(user_data)

@@ -5,12 +5,17 @@
 <div class="O_BlockCardName">
   <div class="M_Header">
     <h1 class="page_title">Ивенты</h1>
-    <%= link_to "Добавить ивент", new_event_path, class: 'M_ButtonAdd'%>
+    <% if can? :manage, Event %>
+      <%= link_to "Добавить ивент", new_admin_event_path, class: 'M_ButtonAdd'%>
+    <% end %>
   </div>
   <div id="events">
     <% @events.each do |event| %>
-      <%= link_to event, class: 'event_card' do %>
-        <%= render event %>
+      <%= link_to event_path(event), class: 'event_card' do %>
+        <%= render "events/event", event: event %>
+        <% if can? :manage, event %>
+          <%= button_to "Удалить ивент", event_path(event), method: :delete %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
