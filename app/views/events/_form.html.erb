@@ -1,4 +1,12 @@
-<%= form_with(model: [:admin, event]) do |form| %>
+<% 
+  if current_user && current_user.role == "admin"
+    event_model = [:admin, event]
+  elsif can? :edit, event
+    event_model = event
+  end
+%>
+
+<%= form_with(model: event_model) do |form| %>
   <% if event.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -33,7 +41,6 @@
 
   <div>
     <%= form.label :community_id, style: "display: block" %>
-    <%#= form.text_field :community_id %>
     <%= form.collection_select :community_id, Community.order(:title), :id, :title, {include_blank: true} %>
   </div>
 

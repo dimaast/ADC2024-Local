@@ -1,18 +1,8 @@
 class Admin::EventsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
-  before_action :set_event, only: %i[ edit update destroy ]
+  before_action :set_event, only: %i[ update destroy ]
 
-  # GET /events/new
-  def new
-    @event = Event.new
-  end
-
-  # GET /events/1/edit
-  def edit
-  end
-
-  # POST /events or /events.json
   def create
     @event = current_user.events.new(event_params)
 
@@ -27,20 +17,18 @@ class Admin::EventsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /events/1 or /events/1.json
   def update
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to event_path(@event), notice: "Event was successfully updated." }
         format.json { render :show, status: :ok, location: @event }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render "events/edit", status: :unprocessable_entity }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /events/1 or /events/1.json
   def destroy
     @event.destroy!
 

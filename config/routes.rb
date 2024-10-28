@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :events, only: [ :index, :show ] do
+  resources :events do
     resources :comments
   end
   resources :communities, only: [ :index, :show ]
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :programs
     resources :faculties
     resources :communities, except: [ :index, :show ]
-    resources :events, except: [ :index, :show ]
+    resources :events, only: [ :create, :update ]
   end
 
   get "welcome/index"
