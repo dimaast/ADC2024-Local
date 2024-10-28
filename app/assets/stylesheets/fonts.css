@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'TT Commons Pro Edu Variable';
+    src: local('TT Commons Pro Educational Variable'), url('TT-Commons-Pro-Educational-Variable.ttf'), format('truetype-variations');
+    src: local('TT Commons Pro Educational Variable'), url('TT-Commons-Pro-Educational-Variable.ttf'), format('truetype') tech('variations');
+    font-weight: 100 950;
+    font-stretch: 77% 125%;
+}
