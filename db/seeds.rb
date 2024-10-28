@@ -419,7 +419,7 @@ end
 def create_events(quantity)
     quantity.times do |i|
         user = User.all.sample
-        event = Event.create(title: "Ивент №#{i + 1}", body: create_sentence, author: 'Дима', event_image: upload_random_image, community_id: 1, user_id: user.id, public: get_random_bool)
+        event = Event.create(title: "Ивент №#{i + 1}", body: create_sentence, event_image: upload_random_image, community_id: 1, user_id: user.id, public: get_random_bool)
         puts "Event with id #{event.id} just created!"
     end
 end
@@ -428,7 +428,8 @@ end
 def create_comments(quantity)
     Event.all.each do |event|
         quantity.to_a.sample.times do
-            comment = Comment.create(event_id: event.id, body: create_sentence)
+            user = User.all.sample
+            comment = Comment.create(event_id: event.id, body: create_sentence, user_id: user.id)
             puts "Comment #{comment.id} for event #{comment.event.id} just created!"
         end
     end

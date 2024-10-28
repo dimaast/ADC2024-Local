@@ -4,16 +4,11 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
 
   def index
-    if current_user
       @events = Event.all
-    else
-      @events = Event.where(public: true)
-    end
   end
 
   # GET /events/1 or /events/1.json
   def show
-    @event = Event.find(params[:id])
   end
 
   # GET /events/new
@@ -40,7 +35,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /events/1 or /events/1.json
   def update
     respond_to do |format|
       if @event.update(event_params)
@@ -53,7 +47,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # DELETE /events/1 or /events/1.json
   def destroy
     @event.destroy!
 
@@ -71,6 +64,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :body, :author, :event_image, :community_id)
+      params.require(:event).permit(:title, :body, :event_image, :community_id)
     end
 end

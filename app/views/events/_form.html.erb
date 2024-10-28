@@ -1,7 +1,7 @@
-<% 
+<%
   if current_user && current_user.role == "admin"
     event_model = [:admin, event]
-  elsif can? :edit, event
+  else can? :manage, event
     event_model = event
   end
 %>
@@ -18,12 +18,7 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :author, style: "display: block" %>
-    <%= form.text_field :author %>
-  </div>
-
+  
   <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>

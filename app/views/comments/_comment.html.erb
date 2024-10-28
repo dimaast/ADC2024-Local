@@ -1,4 +1,7 @@
 <div class="comment_block">
+  <h2><%= comment.user.username %></h2>
   <p><%= comment.body %></p>
-  <p><%= link_to "Destroy Comment", [ comment.event, comment], data: { turbo_stream: false, turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+  <%# if can? :manage, comment %>
+    <%= link_to "Destroy Comment", [ comment.event, comment], data: { turbo_stream: false, turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  <%# end %>
 </div>

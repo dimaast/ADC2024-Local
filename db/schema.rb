@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_28_135409) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_28_211317) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "event_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
     t.index ["event_id"], name: "index_comments_on_event_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "communities", force: :cascade do |t|
@@ -32,7 +34,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_28_135409) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "author"
     t.string "event_image"
     t.integer "community_id"
     t.integer "user_id"
@@ -75,6 +76,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_28_135409) do
   end
 
   add_foreign_key "comments", "events"
+  add_foreign_key "comments", "users"
   add_foreign_key "events", "communities"
   add_foreign_key "programs", "faculties"
 end

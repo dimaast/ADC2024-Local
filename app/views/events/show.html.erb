@@ -10,10 +10,12 @@
   <%= link_to "Вернуться к ивентам", events_path %>
 </div>
 
-<h2>Комментарии</h2>
-<% @event.comments.each do |comment| %>
-  <%= render comment %>
-<% end %>
-
 <h2>Добавить комментарий:</h2>
 <%= render "admin/comments/form" %>
+
+<%= turbo_stream_from "comments" %>
+
+<h2>Комментарии</h2>
+<%= turbo_frame_tag "comments" do %>
+  <%= render @event.comments %>
+<% end %>

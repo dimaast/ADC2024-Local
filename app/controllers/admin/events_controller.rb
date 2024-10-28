@@ -33,7 +33,7 @@ class Admin::EventsController < ApplicationController
     @event.destroy!
 
     respond_to do |format|
-      format.html { redirect_to admin_events_path, status: :see_other, notice: "Event was successfully destroyed." }
+      format.html { redirect_to events_path, status: :see_other, notice: "Event was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -46,6 +46,6 @@ class Admin::EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :body, :author, :event_image, :community_id)
+      params.require(:event).permit(:title, :body, :event_image, :community_id)
     end
 end
