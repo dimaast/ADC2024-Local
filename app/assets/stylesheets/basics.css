@@ -140,3 +140,33 @@ body {
     margin: 0px 0px 20px 0px;
    }
  }
+
+ /* Карточки подписчиков */
+
+#mailers {
+  width: 100%;
+  margin: 40px 0px 40px 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.mailer_card {
+ display: flex;
+ flex-direction: row;
+ width: 100%;
+ background-color: white;
+ padding: 20px;
+ border-radius: 20px;
+ align-items: center;
+ justify-content: space-between;
+}
+
+ .mailer_buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+ }

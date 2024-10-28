@@ -6,11 +6,14 @@ Rails.application.routes.draw do
   end
   resources :communities, only: [ :index, :show ]
 
+  resources :mailers, only: [ :create ]
+
   namespace :admin do
     resources :programs
     resources :faculties
     resources :communities, except: [ :index, :show ]
     resources :events, only: [ :create, :update ]
+    resources :mailers
   end
 
   get "welcome/index"

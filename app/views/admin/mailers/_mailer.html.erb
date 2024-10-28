@@ -1,0 +1,8 @@
+<div class="mailer_card">
+  <%= mailer.email %>
+
+  <div class="mailer_buttons">
+    <%= link_to "Edit", edit_admin_mailer_path(mailer) %>
+    <%= button_to "Destroy", admin_mailer_path(mailer), method: :delete %>
+  </div>
+</div>

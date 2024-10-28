@@ -7,6 +7,7 @@ class Ability
     # Define abilities for the user here. For example:
 
     # can :read, Event, public: true
+    can :create, Mailer
 
     return unless user.present?
     can :read, Event.all

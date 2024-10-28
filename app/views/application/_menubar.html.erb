@@ -11,6 +11,7 @@
     <% if user_signed_in? && current_user.role == "admin" %>
       <%= link_to "Факультеты", admin_faculties_url %>
       <%= link_to "Программы", admin_programs_url %>
+      <%= link_to "Подписки", admin_mailers_url %>
     <% end %>
 
     <% if user_signed_in? %>
