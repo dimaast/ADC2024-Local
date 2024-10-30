@@ -1,7 +1,16 @@
 <%# здесь будет рендеринг %>
 <h1>Добро пожаловать в Локал!</h1>
+<div class = 'logo'>LOGO!!!</div>
 
 <p>Медиасервис о мероприятиях, тусовках и встречах в Вышке</p>
+
+    <div class='VerticalContainer'>
+    <h1>Следи за обновлениями</h1>
+    <h2>Подписывайся на рассылку</h2>
+    </div>
+
+<%= render "application/footer"  %>
+
 
 <div id="new_mailer">
     <%= render "mailers/form"  %>
