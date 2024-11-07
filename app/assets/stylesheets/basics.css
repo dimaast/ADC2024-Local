@@ -10,7 +10,65 @@ body {
     color: var(--black);
     font-weight: 400;
   }
- 
+
+  .about {
+    background: #B0CAE1;
+
+    .people_star {
+      width: 90.22vw;
+      height: 67.766vw;
+      background: url('people_star.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 0 auto;
+    }
+
+     .interface {
+      height: 68.287vw;
+      
+      h2 {
+        margin-top: 6.78%;
+      }
+
+      .interface_img {
+        width: 81.535%;
+        height: 75.951%;
+        background: url('interface_img.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0 auto;
+      }
+     }
+     .yellow {
+      background: var(--yellow);
+      width: calc(100% - 60px); /* Ширина страницы минус два отступа по 30px */
+      border-radius: 30px;
+      margin: 0 auto;
+     }
+
+
+     .simple_block {
+      width: calc(100% - 60px);
+      height: 22.44%;
+      padding: 40px 0 0 40px;
+      margin-top: 80px;
+
+      h2 {
+        margin-bottom: 80px;
+      }
+
+      .iphone {
+        width: 32.986vw;
+        height: 66.146vw;
+        background: url('iphone.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0 auto;
+
+      }
+     }
+   }
+
   h1 {
    font-size: 32px;
    font-weight: 600;
@@ -21,10 +79,20 @@ body {
  
   h2 {
   font-family: "TT Interphases Edu";
-   font-size: 30px;
+   font-size: 52px;
    font-weight: 500;
    line-height: 80%;
    letter-spacing: -1.224px;
+   text-align: center;
+  }
+
+  h3 {
+    font-family: "TT Interphases Edu";
+    font-size: 96px;
+    font-weight: 500;
+    line-height: 80%;
+    letter-spacing: -1.224px;
+
   }
 p {
     font-family: "TT Interphases Edu";
@@ -33,6 +101,9 @@ p {
      line-height: 80%;
      letter-spacing: -1.224px;
     }
+  .highlighted {
+    color: var(--yellow)
+  }
   .event_image {
     width: 100%;
     height: 200px;
@@ -151,13 +222,13 @@ p {
  }
  
  .logo {
-  display: flex;
   width: 851px;
   height: 226px;
   background: url('logo.svg');
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
  }
+
 
  /* Карточки */
  
@@ -209,3 +280,4 @@ p {
   align-items: center;
   gap: 10px;
  }
+

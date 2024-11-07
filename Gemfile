@@ -37,6 +37,8 @@ gem "bootsnap", require: false
 gem "devise"
 gem "cancancan"
 
+gem "htmlbeautifier"
+
 gem "carrierwave", "~> 3.0"
 
 group :development, :test do
