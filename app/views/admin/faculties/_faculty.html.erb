@@ -1,4 +1,6 @@
 <div id="<%= dom_id faculty %>">
   <h2><%= faculty.name %></h2>
-
+  <% faculty.programs.each do |program| %>
+    <%= program.name %>
+  <% end %>
 </div>
