@@ -40,6 +40,7 @@ gem "cancancan"
 gem "htmlbeautifier"
 
 gem "carrierwave", "~> 3.0"
+gem "rack-cors"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
