@@ -1,0 +1,9 @@
+<%= render @e_comment %>
+
+<div>
+  <%= link_to "Edit this comment", edit_e_comment_path(@e_comment) %> |
+  <%= link_to "Back to comments", e_comments_path %>
+
+  <%= button_to "Destroy this comment", @e_comment, method: :delete %>
+</div>
+

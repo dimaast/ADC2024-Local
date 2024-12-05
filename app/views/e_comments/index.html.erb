@@ -1,0 +1,14 @@
+<% content_for :title, "Comments" %>
+
+<h1>Comments</h1>
+
+<div id="comments">
+  <% @e_comments.each do |e_comment| %>
+    <%= render e_comment %>
+    <p>
+      <%= link_to "Show this comment", e_comment %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New comment", new_e_comment_path %>

@@ -10,9 +10,12 @@ class Ability
 
     return unless user.present?
     can :read, Event.all
+    can :read, Meet.all
     can :manage, Event, user: user
+    can :manage, Meet, user: user
     can :read, Community
-    can :manage, Comment, user: user
+    can :manage, EComment, user: user
+    can :manage, MComment, user: user
 
     return unless user.role == "admin"
     can :read, :all

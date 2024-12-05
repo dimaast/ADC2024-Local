@@ -11,11 +11,11 @@
 </div>
 
 <h2>Добавить комментарий:</h2>
-<%= render "admin/comments/form" %>
+<%= render "admin/e_comments/form" %>
 
-<%= turbo_stream_from "comments" %>
+<%= turbo_stream_from "e_comments" %>
 
 <h2>Комментарии</h2>
-<%= turbo_frame_tag "comments" do %>
-  <%= render @event.comments %>
+<%= turbo_frame_tag "e_comments" do %>
+  <%= render @event.e_comments %>
 <% end %>

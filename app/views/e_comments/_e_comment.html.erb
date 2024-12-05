@@ -1,0 +1,7 @@
+<div class="e_comment_block">
+  <h2><%= e_comment.user.username %></h2>
+  <p><%= e_comment.body %></p>
+  <%# if can? :manage, e_comment %>
+    <%= link_to "Destroy e_Comment", [ e_comment.event, e_comment], data: { turbo_stream: false, turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  <%# end %>
+</div>

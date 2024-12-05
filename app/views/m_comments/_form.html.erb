@@ -1,12 +1,12 @@
-<% comment = Comment.new %>
+<% m_comment = MComment.new %>
 
-<%= form_with(model: [@event, comment]) do |form| %>
-  <% if comment.errors.any? %>
+<%= form_with(model: [@meet, m_comment]) do |form| %>
+  <% if m_comment.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <h2><%= pluralize(m_comment.errors.count, "error") %> prohibited this m_comment from being saved:</h2>
 
       <ul>
-        <% comment.errors.each do |error| %>
+        <% m_comment.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>

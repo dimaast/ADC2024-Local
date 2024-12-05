@@ -1,18 +1,19 @@
 <nav class = "S_MenuBar">
 
-    <%= link_to "Главная", root_url %>
-    <%= link_to "О проекте", welcome_about_url %>
+    <%#= link_to "Главная", root_url %>
+    <%#= link_to "О проекте", welcome_about_url %>
 
     <% if user_signed_in? %>
-      <%= link_to "Сообщества", communities_url %>
       <%= link_to "Ивенты", events_url %>
+      <%= link_to "Миты", meets_url %>
+      <%= link_to "Сообщества", communities_url %>
     <% end %>
 
-    <% if user_signed_in? && current_user.role == "admin" %>
-      <%= link_to "Факультеты", admin_faculties_url %>
-      <%= link_to "Программы", admin_programs_url %>
-      <%= link_to "Подписки", admin_mailers_url %>
-    <% end %>
+    <%#= if user_signed_in? && current_user.role == "admin" %>
+      <%#= link_to "Факультеты", admin_faculties_url %>
+      <%#= link_to "Программы", admin_programs_url %>
+      <%#= link_to "Подписки", admin_mailers_url %>
+    <%# end %>
 
     <% if user_signed_in? %>
       <%= link_to current_user.username, edit_user_registration_path %>
@@ -22,6 +23,6 @@
       <%= link_to "Зарегистрироваться", new_user_registration_path %>
     <% end %>
 
-    <%= link_to "Telegram-канал", "https://t.me/localhseapp", target: "_blank", rel: "noopener noreferrer" %>
+    <%#= link_to "Telegram-канал", "https://t.me/localhseapp", target: "_blank", rel: "noopener noreferrer" %>
     
 </nav>

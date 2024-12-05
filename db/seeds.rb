@@ -357,7 +357,9 @@ def seed
     create_programs
     create_communities
     create_events(10)
-    create_comments(2..8)
+    create_meets(10)
+    create_e_comments(2..8)
+    create_m_comments(2..8)
 end
 
 # Функция очистки бд, которую встраиваем в seed
@@ -424,15 +426,35 @@ def create_events(quantity)
     end
 end
 
+# Функция создания митов (quantity раз)
+def create_meets(quantity)
+  quantity.times do
+      user = User.all.sample
+      meet = Meet.create(body: create_sentence, date_hosted: DateTime.current.to_date, geotag: 'Покра', user_id: user.id)
+      puts "Meet with id #{meet.id} just created!"
+  end
+end
+
 # Функция создания комментариев ко всем ивентам (quantity слов в комментарии)
-def create_comments(quantity)
+def create_e_comments(quantity)
     Event.all.each do |event|
         quantity.to_a.sample.times do
             user = User.all.sample
-            comment = Comment.create(event_id: event.id, body: create_sentence, user_id: user.id)
-            puts "Comment #{comment.id} for event #{comment.event.id} just created!"
+            e_comment = EComment.create(event_id: event.id, body: create_sentence, user_id: user.id)
+            puts "Comment #{e_comment.id} for event #{e_comment.event.id} just created!"
         end
     end
+end
+
+# Функция создания комментариев ко всем митам (quantity слов в комментарии)
+def create_m_comments(quantity)
+  Meet.all.each do |meet|
+      quantity.to_a.sample.times do
+          user = User.all.sample
+          m_comment = MComment.create(meet_id: meet.id, body: create_sentence, user_id: user.id)
+          puts "Comment #{m_comment.id} for meet #{m_comment.meet.id} just created!"
+      end
+  end
 end
 
 # Функция создания сообществ

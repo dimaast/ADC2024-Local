@@ -1,0 +1,18 @@
+<%= render @meet %>
+
+<div>
+  <%= link_to "Edit this meet", edit_meet_path(@meet) %> |
+  <%= link_to "Back to meets", meets_path %>
+
+  <%= button_to "Destroy this meet", @meet, method: :delete %>
+</div>
+
+<h2>Добавить комментарий:</h2>
+<%= render "m_comments/form" %>
+
+<%= turbo_stream_from "m_comments" %>
+
+<h2>Комментарии</h2>
+<%= turbo_frame_tag "m_comments" do %>
+  <%= render @meet.m_comments %>
+<% end %>

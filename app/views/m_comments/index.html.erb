@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Comments ms" %>
+
+<h1>Comments ms</h1>
+
+<div id="m_comments">
+  <% @m_comments.each do |m_comment| %>
+    <%= render m_comment %>
+    <p>
+      <%= link_to "Show this comments m", m_comment %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New comments m", new_m_comment_path %>

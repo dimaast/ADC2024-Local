@@ -1,0 +1,2 @@
+module MCommentsHelper
+end

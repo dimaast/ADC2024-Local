@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :events do
-    resources :comments
+    resources :e_comments
+  end
+
+  resources :meets do
+    resources :m_comments
   end
 
   resources :communities, only: [ :index, :show ]
