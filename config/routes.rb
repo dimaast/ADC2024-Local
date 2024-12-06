@@ -21,6 +21,15 @@ Rails.application.routes.draw do
     resources :mailers
   end
 
+  namespace :api, format: "json" do
+    namespace :v1 do
+      resources :events, only: [ :index, :show ]
+      resources :meets, only: [ :index, :show ]
+      resources :faculties, only: [ :index, :show ]
+      resources :communities, only: [ :index, :show ]
+    end
+  end
+
   get "welcome/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

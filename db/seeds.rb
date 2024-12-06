@@ -484,3 +484,36 @@ def create_programs
 end
 
 seed
+
+# terminal | write command   | rails g controller api/v1/events
+# code     | create folder   | views/api/v1/events
+# code     | write code      | def index in controller/api/v1/events
+# code     | write code      | namespace :api, namespace :v1, resources :events, only: [:index, :show] in config/routes
+# code     | X write code    | api_v1_events_url or api_v1_events_path in views/welcome/index
+# code     | X write code    | format: 'json' to namespace :api in config/routes
+# code     | X write code    | render json: @events.as_json to def index in controller/api/v1/events
+# note     | .as_json(except: :title) or .as_json(only: :title)
+# note     | self.something self for @ objects
+# code     | X write code    | def as_json in models/event
+# code     | change folder   | json.jbuilder from views/events to views/api/v1/events
+# code     | write code      | partial: "api/v1/events/event" in views/api/v1/events/index
+# code     | write code      | delete format: :json in views/api/v1/events/_event
+# code     | write code      | def show with @event = Event.find(params[:id]) in controller/api/v1/events
+# code     | write code      | partial: "api/v1/events/event" in views/api/v1/events/show
+# code     | delete code     | json.partial! "api/v1/events/event", event: @event in views/api/v1/events/show
+# code     | write code      | json.extract! @event, :id, :title, :body, :created_at, :updated_at in views/api/v1/events/show
+# code     | write code      | json.set! :e_comments with json.array! @event.e_comments, partial: "api/v1/events/e_comment", as: :e_comment in views/api/v1/events/show
+# code     | write code      | json.extract! e_comment, :id, :body, :created_at, :user_id in views/api/v1/events/_e_comment
+# code     | write code      | def asset_host in uploaders_event_image
+
+# code     | write code      | gem "rack-cors" in gemfile
+# terminal | write command   | bundle install
+# code     | create file     | cors.rb in config/initializers
+# code     | write code      | Rails.application.config.middleware.insert_before 0, Rack::Cors do
+#                                allow do
+#                                  origins 'http://localhost:3000/'
+#                                  resource '*', headers: :any, methods: [:get, :post]
+#                                end
+#                              end
+#                              in cors.rb
+#
