@@ -516,4 +516,10 @@ seed
 #                                end
 #                              end
 #                              in cors.rb
-#
+
+# terminal | write command   | rails g scaffold profile name:string body:text contact:string avatar:string user:references
+# terminal | write command   | rails db:migrate
+# code     | write code      | accosiations in models/user and models/profile
+# code     | X write code    | private def create_user_profile with self.create_profile() in models/user
+# code     | X write code    | after_create :create_user_profile in models/user
+# code     | write code      | after_create :create_profile in models/user
