@@ -2,3 +2,9 @@
 //= link_directory ../stylesheets .css
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js
+
+
+//= link_tree ../javascripts .js
+//= link application.js
+//= link animation.js
+//= link toggle_password.js

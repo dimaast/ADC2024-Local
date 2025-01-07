@@ -1,7 +1,7 @@
 <div id="<%= dom_id event %>">
+  <%= image_tag event.event_image.url, :class => "event_image" %>
   <h2><%= event.title %></h2>
 
-  <%= image_tag event.event_image.url, :class => "event_image" %>
 
   <p><strong>Автор:</strong> <%= event.user.username %></p>
 

@@ -230,6 +230,9 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
+    rails-i18n (7.0.10)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
     railties (7.2.1)
       actionpack (= 7.2.1)
       activesupport (= 7.2.1)
@@ -282,6 +285,8 @@ GEM
       ffi (~> 1.12)
       logger
     rubyzip (2.3.2)
+    russian (0.6.0)
+      i18n (>= 0.5.0)
     securerandom (0.3.1)
     selenium-webdriver (4.25.0)
       base64 (~> 0.2)
@@ -365,7 +370,9 @@ DEPENDENCIES
   letter_opener
   puma (>= 5.0)
   rails (~> 7.2.1)
+  rails-i18n
   rubocop-rails-omakase
+  russian
   selenium-webdriver
   sprockets-rails
   sqlite3 (>= 1.4)

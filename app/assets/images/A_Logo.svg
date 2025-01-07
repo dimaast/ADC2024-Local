@@ -1,6 +1,4 @@
-<nav class = "S_MenuBar">
-<%= link_to root_url, class: "A_Logo" do %>
-<svg width="96" height="50" viewBox="0 0 96 50" class="logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="96" height="50" viewBox="0 0 96 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_41_2634)">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M60.0006 34.5726C65.4638 31.4153 73.8565 31.3116 86.8479 35.4926L85.7147 39.0092C67.1286 33.397 57.794 34.5273 55.2296 49.9999L51.567 49.7984C51.0018 43.4516 50.9697 38.0746 44.4944 36.7705C41.3605 36.1323 36.6639 36.3324 29.5622 37.6861C22.5013 39.037 13.2455 41.4947 1.08505 45.2289L0 41.7007C16.3473 36.9895 33.1386 31.3145 45.2304 33.1502C50.1256 34.1301 52.8024 36.9822 54.0364 41.1618C55.3259 38.5229 57.1952 36.1936 60.0006 34.5726Z" fill="#505050"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M37.5723 17.7361C31.4388 20.965 22.9234 21.1797 10.5964 18.0282L11.5092 14.4576C31.3161 19.0957 40.1849 17.0658 45.9738 0L49.5692 0.554939C49.6305 3.30335 49.3794 6.42999 49.7693 9.07617C50.1329 11.5296 51.0179 13.4047 53.1033 14.665C61.9312 19.2228 80.0281 14.2882 95.3619 10.097L96.3841 13.6471C79.6907 18.0925 47.8518 27.8828 46.041 9.11998C43.9702 12.7855 41.2992 15.7719 37.5723 17.7361Z" fill="#505050"/>
@@ -19,30 +17,3 @@
 </clipPath>
 </defs>
 </svg>
-
-<% end %>
-    <%#= link_to "О проекте", welcome_about_url %>
-
-    <% if user_signed_in? %>
-      <%= link_to "Ивенты", events_url %>
-      <%= link_to "Миты", meets_url %>
-      <%= link_to "Сообщества", communities_url %>
-    <% end %>
-
-    <%#= if user_signed_in? && current_user.role == "admin" %>
-      <%#= link_to "Факультеты", admin_faculties_url %>
-      <%#= link_to "Программы", admin_programs_url %>
-      <%#= link_to "Подписки", admin_mailers_url %>
-    <%# end %>
-
-    <% if user_signed_in? %>
-      <%= link_to current_user.username, edit_user_registration_path %>
-      <%= link_to "Выйти", destroy_user_session_path, data: { "turbo-method": :delete } %>
-    <% else %>
-      <%= link_to "Войти", new_user_session_path %>
-      <%= link_to "Зарегистрироваться", new_user_registration_path %>
-    <% end %>
-
-    <%#= link_to "Telegram-канал", "https://t.me/localhseapp", target: "_blank", rel: "noopener noreferrer" %>
-    
-</nav>

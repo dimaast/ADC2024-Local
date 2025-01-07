@@ -159,14 +159,43 @@ p {
     color: var(--yellow)
   }
   .event_image {
+    position: absolute;
     width: 100%;
-    height: 200px;
-    margin: 0px 0px 20px 0px;
+    height: 100%;
+    margin: 0px;
     object-fit: cover;
     object-position: top;
     border-radius: 20px;
   }
- 
+ .overlay_cards {
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.5;
+ }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
  .block_communities {
    display: flex;
@@ -192,14 +221,14 @@ p {
    display: flex;
    margin: 20px 0px 0px 0px;
    /* justify-content: space-between; */
-   gap: 10px;
+   /* gap: 10px; */
    
    a {
      text-decoration: none;
      color: #131313;
      transition: 0.2s;
-     background-color: hsla(0, 0%, 100%, 0.5);
-     border-radius: 8px;
+     /* background-color: hsla(0, 0%, 100%, 0.5); */
+     /* border-radius: 8px; */
      width: fit-content;
      padding: 10px 20px;
  
@@ -209,11 +238,12 @@ p {
    }
  }
  .S_Footer {
-  width: calc(100vw-108px);
+  width: 100vw;
   height: 180px;
+  display: flex;
+  align-items: center;
   background: var(--black);
   border-radius: 18px;
-  margin: 0 auto;
  }
  .VerticalContainer, .Alignment{
   display: flex;
@@ -224,12 +254,6 @@ p {
  .Alignment {
   flex-direction: row;
   gap: 125px;
- }
- .footer_star {
-  width: 548px;
-  height: 459px;
-  background: url('footer_star.svg');
-  clip-path: inset(20px 20px 20px 20px);
  }
  /*  */
  .M_Header {
@@ -275,35 +299,50 @@ p {
    justify-content: flex-start;
  }
  
- .logo {
-  width: 851px;
-  height: 226px;
-  background: url('logo.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
- }
 
+.logo-svg {
+  transition: fill 0.3s ease, transform 0.3s ease; 
+  cursor: pointer;
+}
+
+
+.A_Logo .logo-svg {
+  fill: #333333; 
+}
+
+
+.A_Logo:hover .logo-svg {
+  fill: #ff6600; 
+  transform: scale(1.1); 
+}
 
  /* Карточки */
  
  .event_card, .faculty_card, .program_card {
+  position: relative;
    display: flex;
    flex: 1 1 0;
    flex-direction: column;
    row-gap: 10px;
    box-sizing: border-box;
    min-width: 455px;
-   padding: 20px;
+   min-height: 200px;
    border-radius: 20px;
    border: 1px solid #e3e3e3;
    text-decoration: none;
    color: #131313;
    background-color: #f7f7f7;
  
-   h2 {
+   h2, p {
+    position: absolute;
+    z-index: 100;
     margin: 0px 0px 20px 0px;
    }
+   p {
+    top: 40px;
+   }
  }
+
 
  /* Карточки подписчиков */
 

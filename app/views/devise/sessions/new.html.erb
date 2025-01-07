@@ -1,0 +1,34 @@
+<h2>Войти</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Корпоративная почта", class: "form-control" %>
+  </div>
+
+  <div class="field password-field">
+    <%= f.password_field :password, id: "password", autocomplete: "current-password", placeholder: "Пароль", class: "form-control" %>
+    <button type="button" class="toggle-password" data-target="password">
+    <svg id="eye-open" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15 22.5C21.9036 22.5 27.5 15 27.5 15C27.5 15 21.9036 7.5 15 7.5C8.09644 7.5 2.5 15 2.5 15C2.5 15 8.09644 22.5 15 22.5Z" stroke="#9F9F9F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M15 17.5C16.3807 17.5 17.5 16.3807 17.5 15C17.5 13.6193 16.3807 12.5 15 12.5C13.6193 12.5 12.5 13.6193 12.5 15C12.5 16.3807 13.6193 17.5 15 17.5Z" stroke="#9F9F9F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+      <svg id="eye-closed-login" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10.5C4.5 7.5 7.5 5.25 10.5 5.25c2.25 0 4.5 1.5 6.75 3.75 2.25 2.25 3.25 4.5 3 6.75m-5.5-4.25c-1.75 0-3.5 1.5-5.25 3.5m1.5-3.75c1.75-2 4.5-3.5 6.75-3.5 3 0 5.75 2.25 7.25 5"/>
+      </svg>
+    </button>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field remember-me">
+      <%= f.check_box :remember_me, id: "remember_me" %>
+      <%= f.label :remember_me, "Запомнить меня" %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Войти", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
