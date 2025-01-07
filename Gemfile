@@ -39,7 +39,7 @@ gem "cancancan"
 
 gem "htmlbeautifier"
 
-gem "carrierwave", "~> 3.0"
+gem "carrierwave", "~> 3.1"
 
 gem 'rails-i18n'
 
