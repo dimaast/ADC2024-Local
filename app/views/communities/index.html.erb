@@ -1,10 +1,13 @@
 <% content_for :title, "Communities" %>
 
-<h1>Communities</h1>
+<div class="O_BlockCardName">
+<div class="M_Header">
+<h1 class="page_title">Сообщества</h1>
 
 <% if user_signed_in? %>
-  <%= link_to "New community", new_admin_community_path %>
+  <%= link_to "Добавить сообщество", new_admin_community_path, class: 'M_ButtonAdd'%>
 <% end %>
+</div>
 
 <div id="communities">
   <% @communities.each do |community| %>
@@ -13,3 +16,6 @@
     <% end %>
   <% end %>
 </div>
+</div>
+
+

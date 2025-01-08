@@ -56,7 +56,7 @@ window.addEventListener('load', () => {
 
     renderer.setSize(window.innerWidth, window.innerHeight)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-    renderer.setClearColor(0x000000)
+    renderer.setClearColor(0xF2F2F2)
 
     const parentWidth = 75
     const parentHeight = 20
@@ -135,7 +135,7 @@ window.addEventListener('load', () => {
     })
 
     function updateTexture(offset = 0) {
-      ctx.fillStyle = '#000'
+      ctx.fillStyle = '#F2F2F2'
       ctx.fillRect(0, 0, textureCanvas.width, textureCanvas.height)
 
       const fontSize = 180
