@@ -2,10 +2,10 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-import "three";  // Подключаем Three.js
-// import "lenis";  // Подключаем Lenis
+import "three";  
 // import "animation"
 import "toggle_password"; 
+import "three"; 
 
 // app/assets/javascripts/application.js
 
@@ -60,7 +60,7 @@ window.addEventListener('load', () => {
 
     const parentWidth = 75;
     const parentHeight = 20;
-    const curvature = 35; // Интенсивность искажения
+    const curvature = 20; // Интенсивность искажения
     const segmentsX = 200;
     const segmentsY = 200;
 

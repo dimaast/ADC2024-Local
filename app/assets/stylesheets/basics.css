@@ -249,11 +249,17 @@ p {
  .S_Footer {
   width: 100vw;
   height: 180px;
+  margin-bottom: -600px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: var(--black);
   border-radius: 50%;
+
+  a {
+    color: white;
+    text-decoration: n;
+  }
  }
  .VerticalContainer, .Alignment{
   display: flex;
