@@ -26,6 +26,9 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
+        if current_user.events.count == 1
+          UserMailer.with(user: current_user).welcome_email.deliver_now
+        end
         format.html { redirect_to event_path(@event), notice: "Event was successfully created." }
         format.json { render :show, status: :created, location: @event }
       else
